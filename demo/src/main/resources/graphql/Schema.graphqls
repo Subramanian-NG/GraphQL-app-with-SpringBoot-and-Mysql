@@ -1,0 +1,24 @@
+type Employee {
+  id: ID!
+  firstName: String
+  lastName: String
+  email: String
+}
+
+input employeeInput {
+  firstName: String
+  lastName: String
+  email: String
+}
+
+type Query {
+  employees: [Employee]
+  getEmployee(id: ID!): Employee
+  getEmployeeByEmail(email: String!): Employee
+}
+
+type Mutation {
+  createEmployee(input: employeeInput!): Employee
+  updateEmployee(id: ID!, input: employeeInput): Employee
+  deleteEmployee(id: ID!): String
+}
